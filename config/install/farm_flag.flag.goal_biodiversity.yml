@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - farm_goal
+id: goal_biodiversity
+label: "Goal: Biodiversity"
+entity_types: null
