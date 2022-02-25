@@ -5,3 +5,11 @@ farm_goal.settings:
     _form: 'Drupal\farm_goal\Form\FarmGoalsForm'
   requirements:
     _permission: 'administer farm settings'
+
+farm_goal.biodiversity_report:
+  path: '/report/biodiversity'
+  defaults:
+    _controller: '\Drupal\farm_goal\Controller\BiodiversityReport::report'
+    _title: 'Biodiversity Report'
+  requirements:
+    _permission: 'access farm report index'

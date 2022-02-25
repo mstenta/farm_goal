@@ -1,0 +1,4 @@
+farm_goal.biodiversity_report:
+  title: Biodiversity Report
+  parent: farm.report
+  route_name: farm_goal.biodiversity_report
