@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - farm_goal
+id: biodiversity_logs
+label: Biodiversity logs
+description: 'The map displayed on the biodiversity logs report.'
+options: { }

@@ -1,0 +1,6 @@
+biodiversity_logs:
+  js:
+    js/farmOS.map.behaviors.biodiversity_logs.js: { }
+  dependencies:
+    - farm_map/behavior_popup
+    - farm_map/farm_map

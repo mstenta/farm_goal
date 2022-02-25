@@ -2,12 +2,8 @@
 
 namespace Drupal\farm_goal\Controller;
 
-use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Menu\MenuLinkTreeInterface;
-use Drupal\Core\Menu\MenuTreeParameters;
-use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\views\Views;
 
 /**
  * Biodiversity report controller.
@@ -21,7 +17,34 @@ class BiodiversityReport extends ControllerBase {
    *   Returns a render array.
    */
   public function report(): array {
-    return [];
+
+    // Render the biodiversity logs view.
+    // Load the view. Note that this
+    // returns a special ViewExecutable object, not a View entity.
+    $view = Views::getView('biodiversity_logs');
+
+    // Skip if the view doesn't exist or access check fails.
+    if (empty($view) || !$view->access('page')) {
+      return [];
+    }
+
+    // Set the display so we get the correct title.
+    $view->setDisplay('page');
+
+    // Add a map above the table of logs.
+    $map = [
+      '#type' => 'farm_map',
+      '#map_type' => 'biodiversity_logs',
+      '#attached' => [
+        'library' => ['farm_goal/biodiversity_logs'],
+      ],
+    ];
+    $view->attachment_before['biodiversity_logs_map'] = $map;
+
+    // Build the views renderable output.
+    $output = $view->buildRenderable('page', []);
+
+    return $output;
   }
 
 }
