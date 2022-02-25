@@ -1,0 +1,5 @@
+name: farmOS Goals
+description: Manage farm goals.
+type: module
+package: farmOS
+core_version_requirement: ^9
