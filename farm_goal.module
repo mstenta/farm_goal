@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Contains farm_goal.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function farm_goal_help($route_name, RouteMatchInterface $route_match) {
+  $output = '';
+
+  // Modules form.
+  if ($route_name == 'farm_goal.settings') {
+    $output .= '<p>' . t('Select the high-level goals you have for your farm. These will be used to provide recommendations throughout farmOS.') . '</p>';
+  }
+
+  return $output;
+}

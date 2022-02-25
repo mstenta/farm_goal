@@ -1,0 +1,7 @@
+farm_goal.settings:
+  path: '/farm/settings/goals'
+  defaults:
+    _title: 'Goals'
+    _form: 'Drupal\farm_goal\Form\FarmGoalsForm'
+  requirements:
+    _permission: 'administer farm settings'

@@ -1,0 +1,4 @@
+farm_goal.settings:
+  base_route: farm_settings.settings_page
+  route_name: farm_goal.settings
+  title: 'Goals'
